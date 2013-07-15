@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>WWWOWWW</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style type="text/css">
+         /**
+         * Example of an initial loading indicator.
+         * It is recommended to keep this as minimal as possible to provide instant feedback
+         * while other resources are still being loaded for the first time
+         */
+        html, body {
+            height: 100%;
+            background: url("resources/img/bg/16.fondo_entrada_gris.png");
+        }
+
+        #appLoadingIndicator {
+            position: absolute;
+            top: 50%;
+            margin-top: -35px;
+            text-align: center;
+            width: 100%;
+            height: 71px;
+            -webkit-animation-name: appLoadingIndicator;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;
+
+            background-image: url("resources/img/logoWhite.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        @-webkit-keyframes appLoadingIndicator{
+            0% {
+                opacity: 0.8
+            }
+            50% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0.8
+            }
+        }
+    </style>
+    <!-- The line below must be kept intact for Sencha Command to build your application -->
+    <script type="text/javascript" src="i18next-1.6.0.min.js"></script>
+    <script type="text/javascript">
+        i18n.init();
+    </script>
+    <script id="microloader" type="text/javascript" src="touch/microloader/development.js"></script>
+</head>
+<body id="TOP_LEVEL_ID">
+    <div id="appLoadingIndicator"></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+    "login"  : {
+        "invitation_required": "Invitation required for entrance",
+        "username"           : "username",
+        "password"           : "password",
+        "login"              : "Login",
+        "invitation"         : "Invitation",
+        "register"           : "register",
+        "about": "about",
+        "email": "E-mail",
+        "remember": "Can't access your account?",
+        "inviteMail": "Invited mail",
+        "newPassword":  "Get new password",
+        "introduceEmail": "Please introduce an email address and we will send you a validation mail",
+        "inviteTitle": "Apply for invitation",
+        "submit": "Submit",
+        "cancel": "Cancel"
+    },
+    "home": {
+        "closet": "Closet",
+        "import": "Import",
+        "newLook": "New Look",
+        "lookBook": "Look Book"
+    },
+    "newLook": {
+        "smile": "Smile",
+        "sure" : "Sure",
+        "lose-changes": "Saved but not published",
+        "title": "Look editor",
+        "clear": "Clear",
+        "exit": "Exit",
+        "clearMessage": "Do you want to remove this look?",
+        "deleteConfirmationTitle": "Delete confirmation",
+        "deleteConfirmationBody": "Are you sure you want to delete this product from the look?"
+    },
+    "lookType": {
+        "addToLookBook": "add to look book",
+        "wow": "WoW"
+    },
+    "list": {
+        "empty": "The list is empty"
+    },
+    "closet": {
+        "addToCloset": "add to closet",
+        "wow": "WoW",
+        "selectDrawers": "Select drawers",
+        "newDrawer": "create new drawer",
+        "link": "link",
+        "title": "Closet",
+        "warning": "Warning",
+        "drawNameExists": "A draw with the given name exists"
+    },
+    "importer": {
+    	"title": "Importer"
+    },
+    "lookbook": {
+        "title": "lookbook"
+    }
+}
