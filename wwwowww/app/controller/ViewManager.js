@@ -11,7 +11,8 @@ Ext.define('WWWOWWW.controller.ViewManager', {
             importDetail: 'importdetail',
             newLook: 'newlook',
             newDrawNameTextField: '#newDrawNameTextField',
-            urlTextField: 'urlformpanel #urlToScrap'
+            urlTextField: 'urlformpanel #urlToScrap',
+            imagesDataview: 'imagesdataview'
         },
 
         control: {
@@ -533,10 +534,13 @@ Ext.define('WWWOWWW.controller.ViewManager', {
     },
 
     configureSocket: function () {
-        var me = this;
+        var me = this,
+            importImagesStore =Ext.getStore('ImportImages');
+        //socket = io.connect('http://localhost:8080');
         socket = io.connect('http://wwwowww.herokuapp.com');
         socket.on('imagestostore', function (images) {
-            Ext.getStore('ImportImages').setData(images);
+            importImagesStore.setData(images);
+            importImagesStore.fireEvent('load', importImagesStore, images, true);
         });
     },
 

@@ -3,16 +3,15 @@ Ext.define('WWWOWWW.view.import.ImagesDataView',{
     xtype: 'imagesdataview',
 
     config:{
-        //fullscreen: true,
         inline: {
             wrap: true
         },
-        /*masked: {
+        masked: {
             xtype: 'loadmask',
-            message: 'Cargando...'
-        },*/
+            message: 'Loading...'
+        },
         scrollable: 'vertical',
-        emptyText: 'No hay imagenes ...',
+        emptyText: 'No images ...',
         store: 'ImportImages',
 
         itemTpl: '<div class="image-dataview">' +
