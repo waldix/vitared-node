@@ -18,6 +18,9 @@ Ext.define('WWWOWWW.controller.ImportController', {
             },
             'imagesdataview':{
                 itemtap: 'onImageItemTap'
+            },
+            'tabbar button[action=useImportedImage]':{
+                tap: 'onUseImportedImageButtonTap'
             }
         }
     }

@@ -13,7 +13,7 @@ var express = require('express'),
     connect = require('connect'),
     request = require('request'),
     jsdom = require('jsdom'),
-    port = process.env.PORT || 8080;
+    port = process.env.PORT || 8081;
 
 //the app configuration
 app.configure(function() {
@@ -83,7 +83,7 @@ io.sockets.on('connection', function(socket) {
                             images.push(image);
                         });
                         //We send the images to the client
-                        io.sockets.emit('imagestostore', images);
+                        socket.emit('imagestostore', images);
                     }
                 });
             } else {

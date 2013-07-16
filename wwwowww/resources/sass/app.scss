@@ -502,16 +502,22 @@ a {
 .image-dataview{
   padding: 10px;
   position: relative;
+  width: 124px;
+  height: 124px;
   &:hover{
     opacity: 0.8;
   }
   .selected-image{
     position: absolute;
-    bottom: 235px;
-    left: 230px;
+    bottom: 96px;
+    left: 116px;
     visibility: hidden;
   }
-  .active{
+  .active-image{
     visibility: visible;
   }
+}
+
+.x-dataview-item{
+  padding: 10px;
 }

@@ -44,7 +44,8 @@ Ext.application({
         'LookBook',
         'Looks',
         'TopStore',
-        'ImportImages'
+        'ImportImages',
+        'AcceptedImports'
     ],
 
     views: [

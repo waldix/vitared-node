@@ -11382,19 +11382,26 @@ a {
 .image-dataview {
   padding: 10px;
   position: relative;
+  width: 124px;
+  height: 124px;
 }
-/* line 505, ../sass/app.scss */
+/* line 507, ../sass/app.scss */
 .image-dataview:hover {
   opacity: 0.8;
 }
-/* line 508, ../sass/app.scss */
+/* line 510, ../sass/app.scss */
 .image-dataview .selected-image {
   position: absolute;
-  bottom: 235px;
-  left: 230px;
+  bottom: 96px;
+  left: 116px;
   visibility: hidden;
 }
-/* line 514, ../sass/app.scss */
-.image-dataview .active {
+/* line 516, ../sass/app.scss */
+.image-dataview .active-image {
   visibility: visible;
+}
+
+/* line 521, ../sass/app.scss */
+.x-dataview-item {
+  padding: 10px;
 }

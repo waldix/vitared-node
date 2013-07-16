@@ -11,8 +11,7 @@ Ext.define('WWWOWWW.controller.ViewManager', {
             importDetail: 'importdetail',
             newLook: 'newlook',
             newDrawNameTextField: '#newDrawNameTextField',
-            urlTextField: 'urlformpanel #urlToScrap',
-            imagesDataview: 'imagesdataview'
+            urlTextField: 'urlformpanel #urlToScrap'
         },
 
         control: {
@@ -22,7 +21,8 @@ Ext.define('WWWOWWW.controller.ViewManager', {
             }
         },
 
-        positiveIds: ['ok', 'yes']
+        positiveIds: ['ok', 'yes'],
+        selectedImages: []
     },
 
     /**
@@ -536,8 +536,8 @@ Ext.define('WWWOWWW.controller.ViewManager', {
     configureSocket: function () {
         var me = this,
             importImagesStore =Ext.getStore('ImportImages');
-        //socket = io.connect('http://localhost:8080');
-        socket = io.connect('http://wwwowww.herokuapp.com');
+        socket = io.connect('http://localhost:8081');
+        //socket = io.connect('http://wwwowww.herokuapp.com');
         socket.on('imagestostore', function (images) {
             importImagesStore.setData(images);
             importImagesStore.fireEvent('load', importImagesStore, images, true);
@@ -545,14 +545,27 @@ Ext.define('WWWOWWW.controller.ViewManager', {
     },
 
     onImageItemTap: function(dataview, index, target, record, e, eOpts){
-        var node = target.child('.image-dataview'),
-            selectedImage = node.child('.selected-image');
+        var me = this,
+            node = target.child('.image-dataview'),
+            selection = node.child('.selected-image');
 
-        if(!selectedImage.hasCls('active')){
-           selectedImage.addCls('active');
-        } else {
-            selectedImage.removeCls('active');
-        }
+            if(!selection.hasCls('active-image')){
+                selection.addCls('active-image');
+                me.getSelectedImages().push(record);
+            } else {
+                selection.removeCls('active-image');
+                Ext.Array.remove(me.getSelectedImages(), record);
+            }
+    },
+
+    onUseImportedImageButtonTap: function (b,e){
+        var me = this,
+            main = me.getMain(),
+            acceptedImportsStore = Ext.getStore('AcceptedImports'),
+            images = me.getSelectedImages();
+
+        acceptedImportsStore.add(images);
+        main.pop();
     }
 
 });

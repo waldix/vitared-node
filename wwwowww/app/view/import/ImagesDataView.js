@@ -11,11 +11,11 @@ Ext.define('WWWOWWW.view.import.ImagesDataView',{
             message: 'Loading...'
         },
         scrollable: 'vertical',
-        emptyText: 'No images ...',
         store: 'ImportImages',
+        mode: 'MULTI',
 
         itemTpl: '<div class="image-dataview">' +
-            '<img src="../../../resources/images/checked.png" class="selected-image" width="24px" height="24px">' +
-            '<img src="{src}" width="250" height="250" ><br><p>{alt}</p></div>'
+            '<img src="../../../resources/images/checked.png" class="selected-image" width="16px" height="16px">' +
+            '<img src="{src}" width="124" height="124" ><br><p>{alt}</p></div>'
     }
 });
