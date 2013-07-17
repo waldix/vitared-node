@@ -536,8 +536,8 @@ Ext.define('WWWOWWW.controller.ViewManager', {
     configureSocket: function () {
         var me = this,
             importImagesStore =Ext.getStore('ImportImages');
-        socket = io.connect('http://localhost:8081');
-        //socket = io.connect('http://wwwowww.herokuapp.com');
+        //socket = io.connect('http://localhost:8081');
+        socket = io.connect('http://wwwowww.herokuapp.com');
         socket.on('imagestostore', function (images) {
             importImagesStore.setData(images);
             importImagesStore.fireEvent('load', importImagesStore, images, true);
