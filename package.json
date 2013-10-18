@@ -1,5 +1,5 @@
 {
-  "name": "wwwowww",
+  "name": "vitared",
   "description": "Image Importer",
   "version": "0.0.1",
   "dependencies": {
@@ -13,7 +13,7 @@
     "node": "0.8.x",
     "npm": "1.1.x"
   },
-  "subdomain": "wwwowww",
+  "subdomain": "vitared",
   "scripts": {
     "start": "app.js"
   }

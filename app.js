@@ -17,8 +17,8 @@ var express = require('express'),
 
 //the app configuration
 app.configure(function() {
-    app.use(connect.static('./wwwowww'));
-    app.set('appIndex', './wwwowww/index.html');
+    app.use(connect.static('./vitared'));
+    app.set('appIndex', './vitared/index.html');
     app.use(connect.bodyParser());
     app.use(express.logger());
     app.use(express.errorHandler({ dumpExceptions: true }));
@@ -46,6 +46,9 @@ io.sockets.on('connection', function(socket) {
     socket.on('urltoscrap', function(url) {
         //Array the images
         var images = [];
+        if(url.search('http://') != 0 && url.search('https://') != 0){
+            url = 'http://' + url;
+        }
         // we do the request to the url given
         request({uri: url}, function(err, response, body){
             //Just a basic error check
@@ -60,10 +63,13 @@ io.sockets.on('connection', function(socket) {
                     done: function(errors, window) {
                         var $ = window.$;
                         // find all the html images
-                        console.log($('img'));
                         $('img').each(function(idx, elem) {
                             var image = {},
-                                src = $(elem).attr('src');
+                                src = $(elem).attr('src'),
+                                x, y,
+                                width = $(elem).attr('width'), //Width of the Image, height;
+                                height = $(elem).attr('height'); //Height of the Image
+
                             if(!validateURL(src)){ //If is not a url
                                 var index =src.indexOf('//'); //some images have double slash at the begining
 
@@ -75,12 +81,18 @@ io.sockets.on('connection', function(socket) {
                                     src = url + src;
                                 }
                             }
-                            // Get the src and alt attributes
-                            image.url = url;
-                            image.src = src;
-                            image.alt = $(elem).attr('alt');
 
-                            images.push(image);
+                            //Image configuration variables
+                            x = 40;
+                            y = 60;
+
+                            if(width > x && height > y){
+                                // Get the src and alt attributes
+                                image.link = url;
+                                image.image = {full: src, half: src, third:src, quarter:src};
+                                image.description = $(elem).attr('alt');
+                                images.push(image);
+                            }
                         });
                         //We send the images to the client
                         socket.emit('imagestostore', images);
